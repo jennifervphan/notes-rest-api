@@ -1,0 +1,64 @@
+{
+	"name": "rest-api",
+	"version": "1.0.0",
+	"description": "REST API with Node.js, Express, and TypeScript",
+	"main": "dist/index.js",
+	"scripts": {
+		"dev": "tsx watch src/index.ts",
+		"build": "tsc",
+		"start": "node dist/index.js",
+		"test": "jest",
+		"test:watch": "jest --watch",
+		"format": "biome check --write",
+		"format:ci": "biome ci"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"cors": "^2.8.6",
+		"express": "^4.18.2",
+		"helmet": "^8.1.0",
+		"zod": "^4.3.6"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.4.4",
+		"@types/cors": "^2.8.19",
+		"@types/express": "^4.17.21",
+		"@types/jest": "^30.0.0",
+		"@types/node": "^20.10.0",
+		"globals": "^17.3.0",
+		"jest": "^30.2.0",
+		"jiti": "^2.4.2",
+		"ts-jest": "^29.4.6",
+		"tsx": "^4.6.0",
+		"typescript": "^5.3.2",
+		"typescript-eslint": "^8.56.1"
+	},
+	"jest": {
+		"rootDir": "src",
+		"testEnvironment": "node",
+		"coveragePathIgnorePatterns": [
+			"/node_modules/"
+		],
+		"transform": {
+			"^.+\\.ts$": "ts-jest"
+		},
+		"transformIgnorePatterns": [
+			"/node_modules/"
+		],
+		"moduleNameMapper": {
+			"^@/(.*)$": "<rootDir>/$1"
+		},
+		"moduleFileExtensions": [
+			"js",
+			"ts",
+			"json"
+		],
+		"testMatch": [
+			"**/tests/*.ts",
+			"**/?(*.)+(spec|test).ts"
+		],
+		"verbose": true
+	}
+}
