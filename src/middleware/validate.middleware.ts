@@ -31,7 +31,6 @@ export const validate = (schema: ZodType<RequestData>) => {
 				}));
 
 				return res.status(400).json({
-					success: false,
 					error: "Validation failed",
 					details: errors,
 				});

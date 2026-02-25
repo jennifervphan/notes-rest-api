@@ -4,7 +4,7 @@ import {
 	notesRepository,
 } from "./notes.repository";
 
-export class NoteService {
+export class NotesService {
 	constructor(private repository: NotesRepository = notesRepository) {}
 	create(data: { content: string; title: string }): Note {
 		return this.repository.create(data.content, data.title);
@@ -19,4 +19,4 @@ export class NoteService {
 	}
 }
 
-export const noteService = new NoteService();
+export const noteService = new NotesService();

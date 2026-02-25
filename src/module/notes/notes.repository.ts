@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { NotFoundError } from "../middleware/error.middleware";
+import { NotFoundError } from "../../middleware/error.middleware";
 
 export interface Note {
 	id: string;
@@ -16,12 +16,8 @@ export class NotesRepository {
 		return note;
 	}
 
-	findById(id: string): Note | undefined {
-		return this.notes.find((note) => note.id === id);
-	}
-
 	getAll(): Note[] {
-		return this.notes;
+		return structuredClone(this.notes);
 	}
 
 	delete(id: string): void {

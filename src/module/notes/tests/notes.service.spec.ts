@@ -1,12 +1,12 @@
 import { NotesRepository } from "../notes.repository";
-import { NoteService } from "../notes.service";
+import { NotesService } from "../notes.service";
 
 describe("NoteService", () => {
-	let noteService: NoteService;
+	let noteService: NotesService;
 
 	beforeEach(() => {
 		const repository = new NotesRepository();
-		noteService = new NoteService(repository);
+		noteService = new NotesService(repository);
 	});
 
 	describe("create", () => {

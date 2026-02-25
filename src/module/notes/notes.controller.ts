@@ -1,10 +1,10 @@
 import type { Response } from "express";
-import type { ApiResponse, TypedRequest } from "../types";
+import type { ApiResponse, TypedRequest } from "../../types";
 import type { CreateNoteInput, DeleteNoteParams } from "./note.schema";
-import { type NoteService, noteService } from "./notes.service";
+import { type NotesService, noteService } from "./notes.service";
 
-export class NoteController {
-	constructor(private service: NoteService = noteService) {}
+export class NotesController {
+	constructor(private service: NotesService = noteService) {}
 	createNote(req: TypedRequest<CreateNoteInput>, res: Response): void {
 		const note = this.service.create(req.body);
 
@@ -26,10 +26,7 @@ export class NoteController {
 		res.status(200).json(response);
 	}
 
-	deleteNote(
-		req: TypedRequest<unknown, unknown, DeleteNoteParams>,
-		res: Response,
-	): void {
+	deleteNote(req: TypedRequest<DeleteNoteParams>, res: Response): void {
 		this.service.delete(req.params.id);
 
 		const response: ApiResponse = {
@@ -40,4 +37,4 @@ export class NoteController {
 	}
 }
 
-export const notesController = new NoteController();
+export const notesController = new NotesController();
